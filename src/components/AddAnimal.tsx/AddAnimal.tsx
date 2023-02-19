@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../../store/hooks'
 import { Animal, addAnimal } from '../../store/animalSlice'
 import { v4 as uuid } from 'uuid';
+import isUrl from 'is-url';
 
 export default function AddAnimal() {
 
@@ -56,6 +57,7 @@ export default function AddAnimal() {
           <label>
             <span>Name</span>
             <input value={animalObject.name}
+              placeholder="Tiger..."
               onChange={(e) => setAnimalObject({ ...animalObject, name: e.target.value })}
               required
             />
@@ -64,6 +66,7 @@ export default function AddAnimal() {
           <label>
             <span>Image source</span>
             <input value={animalObject.imgLink}
+              placeholder="http://..."
               onChange={(e) => setAnimalObject({ ...animalObject, imgLink: e.target.value })}
               required
             />
@@ -82,6 +85,7 @@ export default function AddAnimal() {
 
             {(showNewSpecies || !Boolean(allSpecies.length)) && (
               <input value={animalObject.species}
+                placeholder="Cat..."
                 onChange={(e) => setAnimalObject({ ...animalObject, species: e.target.value })}
                 required
               />
@@ -99,8 +103,12 @@ export default function AddAnimal() {
             }
           </label>
           <button>Add</button>
-          <div className={styles.error_msg}>
-            {invalidInput && 'Invalid input!'}</div>
+
+          {invalidInput && (
+            <div className={styles.error_msg}>
+              <b>Invalid input!</b> Please use only english letters for Name and Species.
+            </div>
+          )}
         </form>)
       }
     </>
