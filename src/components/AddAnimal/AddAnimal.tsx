@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../../store/hooks'
 import { Animal, addAnimal } from '../../store/animalSlice'
 import { v4 as uuid } from 'uuid';
-import isUrl from 'is-url';
 
 export default function AddAnimal() {
 

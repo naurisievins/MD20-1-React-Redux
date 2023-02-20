@@ -1,5 +1,5 @@
 import styles from './Animal.module.scss'
-import { useAppSelector, useAppDispatch } from '../../store/hooks'
+import { useAppSelector } from '../../store/hooks'
 import { Animal as AnimalType } from '../../store/animalSlice';
 
 export default function Animal() {

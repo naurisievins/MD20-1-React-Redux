@@ -2,7 +2,7 @@ import styles from './Animals.module.scss'
 import { useAppSelector, useAppDispatch } from '../../store/hooks'
 import { setFilterSpecies } from '../../store/animalSlice'
 import Animal from '../Animal/Animal'
-import AddAnimal from '../AddAnimal.tsx/AddAnimal'
+import AddAnimal from '../AddAnimal/AddAnimal'
 import { v4 as uuid } from 'uuid'
 
 export default function Animals() {
